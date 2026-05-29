@@ -1,1 +1,13 @@
-
+services:
+  - type: web
+    name: blue-lagoon
+    env: python
+    repo: https://github.com/YOUR_USERNAME/blue-lagoon-chat
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.11.0
